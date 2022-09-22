@@ -1,0 +1,69 @@
+/**
+ * Basic typography style for copy text
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+h1 {
+  @include heading1();
+}
+
+h2 {
+  @include heading2();
+}
+
+h3 {
+  @include heading3();
+}
+
+h4 {
+  @include heading4();
+}
+
+h5 {
+  @include heading5();
+}
+
+h6 {
+  @include heading6();
+}
+
+p {
+  margin: 0;
+  @include bodyText();
+}
+
+.subheading1 {
+  color: $white;
+  font-size: 28px;
+  font-family: 'Bellefair', serif;
+}
+
+.subheading2 {
+  color: $white;
+  font-size: 14px;
+  letter-spacing: 2.35px;
+  font-family: 'Barlow Condensed', serif;
+}
+
+.subheading3 {
+  color: $secondary;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.7px;
+  font-family: 'Barlow Condensed', serif;
+  @include mq("desktop-small", max) {
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 2.37px;
+  }
+}

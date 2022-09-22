@@ -1,0 +1,178 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the common parts in all application
+// -----------------------------------------------------------------------------
+// Custom Color Classes
+.text-primary {
+  color: $primary;
+}
+.text-secondary {
+  color: $secondary;
+}
+
+.bg-primary {
+  background-color: $primary;
+}
+.bg-secondary {
+  background-color: $secondary;
+}
+
+// Custom Container
+.container {
+  margin: 0 auto;
+  padding: 0 24px;
+  @include mq("desktop-small") {
+    padding: 0 96px;
+    max-width: 1300px;
+  }
+}
+
+.d-sm-only {
+  @include mq("tablet") {
+    display: none;
+  }
+}
+
+// Cursor
+.cursor {
+  display: none;
+  position: fixed;
+  background-color: $primary;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  z-index: 1;
+  transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+    0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity,
+    0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) background;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+  transform: scale(1);
+  &.active {
+    background-color: $secondary;
+    opacity: 1;
+    transform: scale(0);
+  }
+  &.menu-active {
+    opacity: 1;
+    transform: scale(0);
+  }
+  &.primary {
+    background-color: $primary !important;
+  }
+  &.white {
+    background-color: $white !important;
+  }
+  &.hovered {
+    opacity: 1;
+  }
+  @include mq("tablet") {
+    display: block;
+  }
+}
+
+.cursor-follower {
+  display: none;
+  position: fixed;
+  border: 1px solid $primary;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  z-index: 1;
+  transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+    0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity,
+    0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) background,
+    0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) border-color;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(2px, 2px);
+  overflow: hidden;
+  &.active {
+    opacity: 1;
+    transform: scale(3);
+    border-color: $secondary;
+  }
+  &.primary {
+    border-color: $primary !important;
+  }
+  &.white {
+    border-color: $white !important;
+  }
+  &.menu-active {
+    opacity: 1;
+    transform: scale(3);
+  }
+
+  &.hovered {
+    opacity: 1;
+  }
+  @include mq("tablet") {
+    display: block;
+  }
+}
+
+.main {
+  min-height: calc(100vh - 136px);
+  @include mq("desktop-small", max) {
+    min-height: calc(100vh - 96px);
+  }
+  @include mq("tablet-small", max) {
+    min-height: calc(100vh - 64px);
+  }
+}
+
+.footer {
+  height: 40px;
+}
+
+.hamburger{
+  width: 24px;
+  height: 21px;
+  display: block;
+  position: relative;
+  background: none;
+  border: none;
+  z-index: 2;
+  @include mq("tablet-small") {
+    display: none;
+  }
+  &:after, &:before, span {
+    content: ' ';
+    position: absolute;
+    display: block;
+    left:0;
+    width: 100%;
+    height: 3px;
+    background-color: $secondary;
+    -webkit-transition: all 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
+  }
+  &:before{
+    top: 0;
+  }
+  &:after{
+    bottom: 0; 
+  }
+  &:focus{
+    outline: none;
+  }
+  span{
+    top: 9px;
+  }
+  &.active {
+    &:before{
+      @include css3-rotation(-45deg);
+      top: $hamburger-size / 2;
+      margin-top: -10%;
+    }
+    &:after{
+      @include css3-rotation(45deg);
+      top: $hamburger-size / 2;
+      margin-top: -10%;
+    }
+    span{
+      opacity: 0;
+    }
+  }
+}

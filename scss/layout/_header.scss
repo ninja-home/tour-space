@@ -1,0 +1,173 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+// Header styles
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-left: 55px;
+  @include mq("desktop-small", max) {
+    margin-top: 0;
+    padding-left: 40px;
+  }
+  @include mq("tablet-small", max) {
+    margin-top: 24px;
+    padding: 0 24px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 800px;
+    width: calc(100% - 965px);
+    border-top: 1px solid $white;
+    mix-blend-mode: normal;
+    opacity: 0.25;
+    @include mq("desktop-small", max) {
+      display: none;
+    }
+  }
+  .logo-holder {
+    font-size: 0;
+    line-height: 0;
+    @include mq("tablet-small", max) {
+      img {
+        width: 40px;
+      }
+    }
+  }
+  &-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 830px;
+    padding-left: 120px;
+    @include mq("desktop-small", max) {
+      width: auto;
+      padding: 0 48px;
+    }
+    @include mq("tablet-small", max) {
+      position: fixed;
+      display: block;
+      top: 0;
+      right: -254px;
+      bottom: 0;
+      width: 254px;
+      padding: 118px 0 0 32px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(81.5485px);
+      transition: all 0.3s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      z-index: 1;
+      &.active {
+        right: 0;
+      }
+    }
+    &::before {
+      @include pseudo-elements;
+      background-color: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(16px);
+      @include mq("desktop-small", max) {
+        backdrop-filter: initial;
+      }
+    }
+    &__items {
+      position: relative;
+      display: flex;
+      align-items: center;
+      counter-reset: header-item-counter;
+      @include mq("tablet-small", max) {
+        display: block;
+      }
+    }
+    &__item {
+      &:not(:first-child) {
+        counter-increment: header-item-counter;
+      }
+      &:not(:last-child) {
+        margin-right: 48px;
+        @include mq("desktop-small", max) {
+          margin-right: 36px;
+        }
+        @include mq("tablet-small", max) {
+          margin: 0 0 32px 0;
+        }
+      }
+      a {
+        position: relative;
+        display: block;
+        padding: 39px 4px 38px 29px;
+        color: $white;
+        font-size: 16px;
+        letter-spacing: 2.7px;
+        text-transform: uppercase;
+        font-family: 'Barlow Condensed', sans-serif;
+        @include mq("desktop-small", max) {
+          font-size: 14px;
+          letter-spacing: 2.34px;
+          padding: 39px 2px 40px 0;
+        }
+        @include mq("tablet-small", max) {
+          padding: 0 0 0 29px;
+          font-size: 16px;
+          letter-spacing: 2.7px;
+          line-height: 1.2;
+          font-weight: 400;
+        }
+        &::before {
+          content: '0' counter(header-item-counter);
+          position: absolute;
+          margin-left: -29px;
+          @include mq("desktop-small", max) {
+            display: none;
+          }
+          @include mq("tablet-small", max) {
+            display: block;
+            font-weight: 600;
+          }
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          border-top: 3px solid rgba(255, 255, 255, 0.5);
+          transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          @include mq("tablet-small", max) {
+            top: 0;
+            bottom: initial;
+            left: initial;
+            right: 0;
+            height: 0;
+            border-top: none;
+            border-left: 4px solid rgba(255, 255, 255, 1);
+          }
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+            @include mq("tablet-small", max) {
+              height: 100%;
+              width: 0;
+            }
+          }
+        }
+      }
+      
+      &.active {
+        a::after {
+          width: 100%;
+          border-top: 3px solid $white;
+          @include mq("tablet-small", max) {
+            height: 100%;
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+}

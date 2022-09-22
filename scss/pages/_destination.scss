@@ -1,0 +1,150 @@
+.page-destination {
+  @include backgroundElement;
+  background-image: url(../images/destination/background-destination-desktop.jpg);
+  @include mq("desktop-small", max) {
+    background-image: url(../images/destination/background-destination-tablet.jpg);
+  }
+  @include mq("tablet-small", max) {
+    background-image: url(../images/destination/background-destination-mobile.jpg);
+  }
+}
+.tab.destination {
+  margin-top: 64px;
+  @include mq("desktop-small", max) {
+    margin-top: 60px;
+  }
+  @include mq("tablet-small", max) {
+    margin-top: 32px;
+  }
+  .tab {
+    &-images {
+      margin-left: 65px;
+      padding-top: 32px;
+      width: calc(100% - 530px);
+      max-width: 445px;
+      @include mq("desktop-small", max) {
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        max-width: 300px;
+      }
+      @include mq("tablet-small", max) {
+        max-width: 170px;
+      }
+    }
+    &-content {
+      width: 445px;
+      @include mq("desktop-small", max) {
+        margin: 50px auto 0;
+        width: 100%;
+        max-width: 573px;
+        text-align: center;
+      }
+      @include mq("tablet-small", max) {
+        margin-top: 24px;
+      }
+      &__item {
+        h2 {
+          margin-bottom: 14px;
+          @include mq("desktop-small", max) {
+            margin-bottom: 8px;
+          }
+        }
+        .stats {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 54px;
+          padding-top: 28px;
+          border-top: 1px solid $line;
+          @include mq("desktop-small", max) {
+            justify-content: center;
+            .distance {
+              margin-right: 11px;
+            }
+          }
+          @include mq("tablet-small", max) {
+            .distance {
+              margin: 0 0 32px;
+            }
+          }
+          @include mq("tablet-small", max) {
+            display: block;
+            margin-top: 32px;
+            padding-top: 32px;
+          }
+          .distance, .time {
+            width: calc(50% - 5px);
+            text-transform: uppercase;
+            @include mq("desktop-small", max) {
+              max-width: 223px;
+            }
+            @include mq("tablet-small", max) {
+              width: 100%;
+              max-width: initial;
+            }
+            .subheading1 {
+              line-height: 32px;
+            }
+            .subheading2 {
+              line-height: 1.2;
+              margin: 0 0 12px;
+              color: $secondary;
+            }
+          }
+          
+        }
+      }
+    }
+    &-controls {
+      margin: 0 0 52px;
+      display: flex;
+      @include mq("desktop-small", max) {
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      @include mq("tablet-small", max) {
+        margin-top: 31px;
+        margin-bottom: 32px;
+      }
+      &__item {
+        position: relative;
+        color: $secondary;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: 2.7px;
+        text-transform: uppercase;
+        @include mq("tablet-small", max) {
+          font-size: 14px;
+        }
+        &:not(:last-child) {
+          margin-right: 36px;
+          @include mq("tablet-small", max) {
+            margin-right: 27px;
+          }
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -12px;
+          width: 0;
+          border-bottom: 3px solid $white;
+          opacity: 0.5;
+          transition: all 0.3s ease-in-out;
+        }
+        &.active {
+          &::after {
+            opacity: 1;
+            width: 100%;
+          }
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

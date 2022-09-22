@@ -1,0 +1,109 @@
+// -----------------------------------------------------------------------------
+// Home page styles
+// -----------------------------------------------------------------------------
+.page-home {
+  @include backgroundElement;
+  background-image: url(../images/home/background-home-desktop.jpg);
+  @include mq("desktop-small", max) {
+    background-image: url(../images/home/background-home-tablet.jpg);
+  }
+  @include mq("tablet-small", max) {
+    background-image: url(../images/home/background-home-mobile.jpg);
+  }
+  main {
+    padding-top: 250px;
+    @include mq("desktop-small", max) {
+      padding-top: 105px;
+    }
+    @include mq("tablet-small", max) {
+      padding-top: 48px;
+    }
+  }
+}
+
+.intro {
+  .container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    @include mq("desktop-small", max) {
+      display: block;
+    }
+  }
+  &-content {
+    margin-right: 20px;
+    max-width: 450px;
+    @include mq("desktop-small", max) {
+      margin: 0 auto;
+      text-align: center;
+    }
+    h5 {
+      margin: 0 0 24px;
+      @include mq("tablet-small", max) {
+        margin: 0 0 16px;
+      }
+    }
+    h1 {
+      margin: 0 0 24px;
+      @include mq("tablet-small", max) {
+        margin: 0 0 16px;
+      }
+    }
+  }
+  &-cta {
+    position: relative;
+    width: 274px;
+    height: 274px;
+    @include mq("desktop-small", max) {
+      margin: 150px auto;
+      width: 242px;
+      height: 242px;
+    }
+    @include mq("tablet-small", max) {
+      margin: 50px auto 0;
+      width: 150px;
+      height: 150px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;;
+      background: $white;
+      mix-blend-mode: normal;
+      opacity: 0.1;
+      transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+      z-index: 0;
+    }
+    &:hover::before {
+      top: -33%;
+      left: -33%;
+      width: 166%;
+      height: 166%;
+    }
+    a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      color: $primary;
+      font-size: 32px;
+      line-height: 37px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Bellefair', serif; 
+      background-color: $white;
+      @include mq("tablet-small", max) {
+        font-size: 20px;
+        line-height: 22px;
+        letter-spacing: 1.25px;
+      }
+    }
+  }
+}

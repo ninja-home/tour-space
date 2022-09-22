@@ -1,0 +1,146 @@
+.page-crew {
+  @include backgroundElement;
+  background-image: url(../images/crew/background-crew-desktop.jpg);
+  @include mq("desktop-small", max) {
+    background-image: url(../images/crew/background-crew-tablet.jpg);
+  }
+  @include mq("tablet-small", max) {
+    background-image: url(../images/crew/background-crew-mobile.jpg);
+  }
+}
+
+.tab.crew {
+  margin-top: 154px;
+  @include mq("desktop-small", max) {
+    margin-top: 60px;
+  }
+  @include mq("tablet-small", max) {
+    margin-top: 32px;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .tab {
+    &-images {
+      position: absolute;
+      right: calc(50% - 550px);
+      bottom: 0;
+      @include mq("desktop", max) {
+        right: 24px;
+      }
+      @include mq("desktop-small", max) {
+        position: relative;
+        margin: 40px auto 0;
+        width: auto;
+        right: initial;
+        text-align: center;
+      }
+      @include mq("tablet-small", max) {
+        order: 0;
+        width: 100%;
+        text-align: center;
+        right: initial;
+        margin-top: 0;
+        border-bottom: 1px solid $line;
+      }
+      img {
+        max-width: 40vw;
+        @include mq("desktop-small", max) {
+          max-width: initial;
+          max-height: 530px;
+        }
+        @include mq("tablet-small", max) {
+          max-height: 223px;
+        }
+      }
+    }
+    &-content {
+      @include mq("desktop-small", max) {
+        margin: 50px auto 0;
+        width: 100%;
+        max-width: 573px;
+        text-align: center;
+      }
+      @include mq("tablet-small", max) {
+        margin-top: 32px;
+        @include mq("tablet-small", max) {
+          order: 1;
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+      &__items {
+        @include mq("tablet-small", max) {
+          order: 1;
+        }
+      }
+      &__item {
+        h3 {
+          text-transform: uppercase;
+          margin-bottom: 27px;
+          @include mq("desktop-small", max) {
+            margin-bottom: 16px;
+          }
+        }
+        h4 {
+          text-transform: uppercase;
+          opacity: 0.5;
+          margin-bottom: 14px;
+          @include mq("desktop-small", max) {
+            margin-bottom: 8px;
+          }
+          @include mq("tablet-small", max) {
+            font-size: 16px;
+            margin-top: 32px;
+          }
+        }
+        p {
+          max-width: 445px;
+          @include mq("desktop-small", max) {
+            max-width: 458px;
+            margin: auto;
+          }
+        }
+      }
+    }
+    &-controls {
+      margin: 120px 0 0;
+      display: flex;
+      @include mq("desktop-small", max) {
+        justify-content: center;
+        margin-top: 40px;
+      }
+      @include mq("tablet-small", max) {
+        order: 0;
+        width: 100%;
+        margin-top: 0;
+      }
+      &__item {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        background: $white;
+        opacity: 0.17;
+        transition: all 0.3s ease-in-out;
+        @include mq("tablet-small", max) {
+          width: 10px;
+          height: 10px;
+        }
+        &:not(:last-child) {
+          margin-right: 24px;
+          @include mq("tablet-small", max) {
+            margin-right: 16px;
+          }
+        }
+        &:hover {
+          opacity: 0.5;
+        }
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

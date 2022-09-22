@@ -1,0 +1,52 @@
+.page-tab {
+  .title {
+    padding-top: 76px;
+    @include mq("desktop-small", max) {
+      padding-top: 40px;
+    }
+    @include mq("tablet-small", max) {
+      padding-top: 24px;
+      text-align: center;
+    }
+    h5 {
+      color: white;
+      @include mq("desktop-small", max) {
+        margin-left: 14px;
+      }
+      span {
+        opacity: 0.25;
+        margin-right: 28px;
+        font-weight: 700;
+        @include mq("tablet-small", max) {
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+}
+.tab {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    @include mq("desktop-small", max) {
+      display: block;
+    }
+  }
+  &-images {
+    &__item {
+      display: none;
+      font-size: 0;
+      &.active {
+        display: block;
+      }
+    }
+  }
+  &-content {
+    &__item {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
